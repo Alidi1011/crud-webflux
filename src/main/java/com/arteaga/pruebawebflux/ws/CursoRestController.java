@@ -18,8 +18,14 @@ public class CursoRestController {
 
     private static final Logger log = LoggerFactory.getLogger(CursoRestController.class);
 
+    @GetMapping("/hola")
+    public Mono<String> index(){
+
+        return Mono.just("Hello from Azure Deployment!!!!");
+    }
+
     @GetMapping("/cursos")
-    public Flux<Curso> index(){
+    public Flux<Curso> holaindex(){
 
         Flux<Curso> cursos = cursoService.findAll()
                 .map(curso -> {
